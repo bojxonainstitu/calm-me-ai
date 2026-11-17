@@ -1,12 +1,8 @@
 import type { Metadata } from 'next';
-import { SimulationArena } from '@/components/sim/SimulationArena';
-import { getScenario } from '@/lib/scenarios';
+import { VideoToSim } from '@/components/video/VideoToSim';
 
-export function generateMetadata({ params }: { params: { scenarioId: string } }): Metadata {
-  const s = getScenario(decodeURIComponent(params.scenarioId));
-  return { title: `${s?.shortTitle ?? 'Simulyatsiya'} | CALM ME AI` };
-}
+export const metadata: Metadata = { title: 'Video → Ssenariy | CALM ME AI' };
 
-export default function SimulatePage({ params }: { params: { scenarioId: string } }) {
-  return <SimulationArena scenarioId={params.scenarioId} />;
+export default function VideoToSimPage() {
+  return <VideoToSim />;
 }
